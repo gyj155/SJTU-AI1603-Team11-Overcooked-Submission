@@ -22,4 +22,7 @@ Some code explanations can be found in the PDF file located in the repository's 
 
 For detailed code explanations, please refer to the PDF file in the repository.
 
+## Project Collaborators
+- Jiaguo Tian
+- Yu Huang
 

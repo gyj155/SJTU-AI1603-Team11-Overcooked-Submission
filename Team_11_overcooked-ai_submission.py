@@ -260,7 +260,7 @@ def condition_judge1(obs, is_act_continuous):
                     action[5] = 1
             each = action
             return each
-        #针对菜菜菜组的防卡死
+        
         if hold_dish(p1_state) and (2,3) in dishes_pos(obj) and (2,2) not in onions_pos(obj) and (2,1) not in onions_pos(obj) and hold_dish(p2_state) == False and hold_onion(p2_state) == False:
             if p2_pos!=(3,3):
                 action[1] = 1

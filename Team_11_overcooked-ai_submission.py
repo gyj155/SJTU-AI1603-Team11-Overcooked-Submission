@@ -149,7 +149,7 @@ def parse_pot_states(pot_states):
             pot_x_items.extend(value)
     return pot_states['empty'],pot_x_items,pot_states['cooking'],pot_states['ready']"""
 
-def condition_judge1(obs, is_act_continuous):
+def condition_judge1(obs, is_act_continuous):#credit.tjg
     each = []
     if judge_player1(obs['controlled_player_index']) == 'left':
         action = [0]*6
@@ -592,7 +592,7 @@ def go2table2(now_pos,now_ori,table_pos,another_agent_pos):
         else:
             return interact
              
-def condition_judge2(obs, is_act_continuous=False ):
+def condition_judge2(obs, is_act_continuous=False ):#credit.gyj
     pot_states = get_pot_states(obs)
     pot_emp,pot_items,pot_cooking,pot_ready = parse_pot_states(pot_states)
     p1_state = obs['players'][0]
@@ -913,7 +913,130 @@ Controller_Helper = {(1,1):{'i':[1,4],'a':[2,3]},
                     (3,2):{'i':[2,3],'a':[1,4]}
                     }# i: interactive a: accessible
 
-def condition_judge3(obs,is_act_continuous = False):
+ 
+# def condition_judge3(obs,is_act_continuous=False):#credit.gyj
+        
+    
+#     pot_states = get_pot_states(obs)
+#     pot_emp,pot_items,pot_cooking,pot_ready = parse_pot_states(pot_states)
+    
+    
+#     pot_pos=(2,1)
+#     pot=(2,0)
+#     deliver_pos=(3,2)
+    
+#     onion_positions, dish_positions, empty_positions = table_filter3(obs,every_table3_set)
+    
+
+    
+#     if judge_player2(obs['controlled_player_index']) == 'alpha':
+#         p1_state = obs['players'][0]
+#         p2_state = obs['players'][1]
+#         p1_pos=obs['players'][0]['position']
+#         p2_pos=obs['players'][1]['position']
+#         p1_ori = p1_state['orientation']
+#         p2_ori = p2_state['orientation']
+#     else:
+#         p1_state = obs['players'][1]
+#         p2_state = obs['players'][0]
+#         p1_pos=obs['players'][1]['position']
+#         p2_pos=obs['players'][0]['position']
+#         p1_ori = p1_state['orientation']
+#         p2_ori = p2_state['orientation']
+        
+#     each_=[0]*6
+#     if my_random1()==0:
+#         print('random!!!!!!!!!')
+#         each_[my_random2()]=1
+#         return each_
+#     #如果手上有汤去交汤
+#     if hold_soup(p1_state):
+#         print('手上有汤去交汤')
+#         if p1_pos!=deliver_pos:
+#             return find_action(deliver_pos,p1_pos,p2_pos)
+#         elif p1_ori!=(0,1):
+#             return down
+#         else:
+#             return interact
+        
+#     #有汤好了且手上有盘 去拿汤
+#     if (((pot in pot_ready) or (pot in pot_cooking) )and (hold_dish(p1_state))):
+#         print('有汤好了且手上有盘 去拿汤')
+#         if p1_pos!=pot_pos:
+#             return find_action(pot_pos,p1_pos,p2_pos)
+#         elif p1_ori!=(0,-1):
+#             return up
+#         else:
+#             return interact     
+        
+  
+#     #如果正在煮 且没拿盘子 去拿盘子
+#     if  ((pot in pot_cooking) or( pot in pot_ready)) and (hold_dish(p1_state)==0):
+        
+#         if hold_onion(p1_state)==1:#拿着洋葱就去放下
+#             print('放下洋葱')
+#             target_table=find_nearest_coordinate(p1_pos, empty_positions)
+#             action = go2table(p1_pos,p1_ori,target_table,p2_pos)
+#             return action
+#         else:    
+#             print('在煮去拿盘子')
+#             target_table=find_nearest_coordinate(p1_pos,dish_positions)
+#             action=go2table(p1_pos,p1_ori,target_table,p2_pos)
+#             return action
+        
+      
+#     #拿了盘子没有汤则放下盘子
+#     if hold_dish(p1_state) and len(pot_ready)==0:
+#         target_table=find_nearest_coordinate(p1_pos, empty_positions)
+#         action = go2table(p1_pos,p1_ori,target_table,p2_pos)
+#         return action
+        
+        
+    
+    
+    
+#     #如果有锅缺洋葱
+#     if (pot not in pot_cooking):
+#         if (ingredient_num(obs,pot)==3) and (pot not in pot_cooking):#三个洋葱没开火
+            
+#             if hold_onion(p1_state) or hold_dish(p1_state):#把手上东西放下
+#                 print('放下东西')
+#                 target_table=find_nearest_coordinate(p1_pos,empty_positions)
+#                 action=go2table(p1_pos,p1_ori,target_table,p2_pos)
+#                 return action
+            
+#             print('去开火')
+#             if p1_pos!=pot_pos:
+#                 return find_action(pot_pos,p1_pos,p2_pos)
+#             elif p1_ori==(0,-1):
+#                 return interact
+#             else:
+#                 return up
+        
+#         #不到三个洋葱
+                
+#         if(hold_onion(p1_state)):#拿着洋葱就去放
+            
+#             print('去放洋葱')
+#             if p1_pos!=pot_pos:
+#                 return find_action(pot_pos,p1_pos,p2_pos)
+#             elif p1_ori==(0,-1):
+#                 return interact
+#             elif p1_ori!=(0,-1):
+#                 return up
+        
+            
+#         else: #没拿洋葱去拿
+#             print('去拿洋葱')
+#             target_table=find_nearest_coordinate(p1_pos,onion_positions)
+#             action=go2table(p1_pos,p1_ori,target_table,p2_pos)
+#             return action
+    
+#     print('去（3,2）')   
+#     return find_action((3,2),p1_pos,p2_pos)
+  
+
+def condition_judge3(obs,is_act_continuous = False):#cr.tjg
     global Controller_Helper,Ori_Helper,Turn_Helper
     global o1_choose,o2_choose,pot_oni_num,is_action
     each = []

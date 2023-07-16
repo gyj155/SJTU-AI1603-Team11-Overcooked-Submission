@@ -1,3 +1,4 @@
+#credit.gyj
 import openai
 openai.api_key = "YOUR API KEY"
 map_num=0

@@ -1034,7 +1034,15 @@ Controller_Helper = {(1,1):{'i':[1,4],'a':[2,3]},
     
 #     print('去（3,2）')   
 #     return find_action((3,2),p1_pos,p2_pos)
-  
+Sub = (3,2)
+Oni1 = (1,1)
+Oni2 = (3,1)
+Dish = (1,2)
+Pot = (2,1)
+pot_oni_num=0
+o1_choose = 0
+o2_choose = 0
+is_action = 0   
 
 def condition_judge3(obs,is_act_continuous = False):#cr.tjg
     global Controller_Helper,Ori_Helper,Turn_Helper

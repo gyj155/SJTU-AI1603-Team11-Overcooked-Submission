@@ -2,6 +2,7 @@
 ## README
 
 This repository is the course project for the AI1603 course at Shanghai Jiao Tong University. 
+[http://www.jidiai.cn/compete_detail?compete=40]
 The project focuses on the Overcooked-ai game. 
 To run Overcooked using this repository, please refer to the instructions provided at [https://github.com/jidiai/Competition_OvercookedAI](https://github.com/jidiai/Competition_OvercookedAI). 
 You can test this code by following the submission guidelines mentioned in the instructions.

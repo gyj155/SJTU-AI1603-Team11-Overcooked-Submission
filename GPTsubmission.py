@@ -1,5 +1,5 @@
 import openai
-openai.api_key = "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"
+openai.api_key = "YOUR API KEY"
 map_num=0
 def my_controller(obs, action_space, is_act_continuous=False):
         agent_action = []
